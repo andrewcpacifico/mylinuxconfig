@@ -1,6 +1,9 @@
 " My .vimrc
 " Created by Andrew C. Pacífico <andrewcpacifico@gmail.com>
 
+" Define <leader> key
+let mapleader= ","
+
 " Vundle configuration
 "
 set nocompatible               " be iMproved
@@ -89,6 +92,7 @@ Plugin 'scrooloose/nerdtree'
 " Open NERDTree automatically when vim starts up if no files where specified
 autocmd vimenter * if !argc() | NERDTree | endif
 let NERDTreeShowHidden=0 " Show Hidden Files
+nnoremap <leader>nt :NERDTreeToggle<cr>
 
 " PHP auto complete
 Plugin 'shawncplus/phpcomplete.vim'
@@ -118,6 +122,11 @@ let g:airline#extensions#tabline#show_buffers = 1
 "let g:airline_enable_syntastic=1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline_detect_paste=1
+"enable/disable showing a summary of changed hunks under source control.
+let g:airline#extensions#hunks#enabled = 1
+
+" fugitive
+Plugin 'tpope/vim-fugitive'
 
 " Supertab
 Plugin 'ervandew/supertab'
@@ -142,25 +151,6 @@ filetype plugin indent on     " required!
 "
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Plugin command are not allowed..
-
-" Eclim configurations
-"
-" a
-let g:EclimJavaCompleteCaseSensitive = 0
-" Generate Javadoc Comment
-autocmd FileType java nnoremap <leader>gd :JavaDocComment<cr>
-" View Javadoc of element under cursor
-autocmd FileType java nnoremap <leader>sd :JavaDocPreview<cr>
-"Format code
-autocmd FileType java nnoremap <leader>fc :JavaFormat<cr>
-" Build Project
-nnoremap <leader>pb :ProjectBuild<cr>
-" Run Project
-autocmd FileType java nnoremap <leader>r :Java<cr>
-" Import class package
-autocmd FileType java nnoremap <leader>i :JavaImport<cr>
-" Organize imports
-autocmd FileType java nnoremap <leader>ia :JavaImportOrganize<cr>
 
 " My Vim options
 
@@ -200,14 +190,11 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 "autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 "autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
 
-" Define <leader> key
-let mapleader= ","
-
 " Keybindings
 "
 " Ctrl+S to save files
-inoremap <C-s> <Esc>:w<CR>i
-nnoremap <c-s> :w<cr>
+inoremap <leader>s <Esc>:w<CR>i
+nnoremap <leader>s :w<cr>
 
 " Ctrl+C to copy selected text to clipboard
 vnoremap <C-c> "+yi
@@ -221,10 +208,6 @@ inoremap <C-z> <Esc>ui
 " Ctrl+D to delete the selected line
 "inoremap <C-d> <Esc>ddi
 "nnoremap <C-d> dd
-
-" Ctrl+U to convert the current word to uppercase
-inoremap <c-u> <esc>viwUi
-nnoremap <c-u> viwU
 
 " Edit .vimrc in split mode
 nnoremap <leader>ev :rightbelow vsplit $MYVIMRC<cr>
@@ -245,6 +228,15 @@ nnoremap <leader><S-Tab> :bprevious<cr>
 " Close current buffer and switch to previous
 nnoremap <leader>bq :bp <bar> bd #<cr>
 
+" Commenting blocks of code.
+autocmd FileType c,cpp,javcala,php,javascript let b:comment_leader = '// '
+autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType conf,fstab       let b:comment_leader = '# '
+autocmd FileType tex              let b:comment_leader = '% '
+autocmd FileType mail             let b:comment_leader = '> '
+autocmd FileType vim              let b:comment_leader = '" '
+noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>a
 
 " -----------------------------------------------------------------------------
 " - Some coding abbreviations
