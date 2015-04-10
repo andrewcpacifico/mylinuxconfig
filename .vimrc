@@ -86,6 +86,7 @@ Plugin 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger='<c-k>'
 let g:UltiSnipsJumpBackwardTrigger='<c-j>'
+let g:snips_author='Andrew C. Pacifico <andrewpacifico@neemu.com>'
 
 " NERDTree
 Plugin 'scrooloose/nerdtree'
@@ -230,7 +231,7 @@ nnoremap <leader>bq :bp <bar> bd #<cr>
 
 " Commenting blocks of code.
 autocmd FileType c,cpp,javcala,php,javascript let b:comment_leader = '// '
-autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType cfg,sh,ruby,python   let b:comment_leader = '# '
 autocmd FileType conf,fstab       let b:comment_leader = '# '
 autocmd FileType tex              let b:comment_leader = '% '
 autocmd FileType mail             let b:comment_leader = '> '
