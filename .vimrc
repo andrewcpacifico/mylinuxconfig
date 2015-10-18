@@ -14,7 +14,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle
 "  " required! 
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " My Plugins here:
 "
@@ -53,12 +53,7 @@ Plugin 'hail2u/vim-css3-syntax'
 " Colorschemes
 Plugin 'modess/vim-phpcolors'
 Plugin 'baskerville/bubblegum'
-"Plugin 'altercation/vim-colors-solarized'
-"Plugin 'spf13/vim-colors'
 Plugin 'tomasr/molokai'
-
-" PHP Comment Generator
-Plugin 'andrewpacifico/acp_php_comments'
 
 " Make gvim-only colorschemes work transparently in terminal vim
 Plugin 'godlygeek/csapprox'
@@ -70,9 +65,6 @@ Plugin 'javacomplete'
 Plugin 'Yggdroot/indentLine'
 
 " Snippets
-"Plugin 'MarcWeber/vim-addon-mw-utils'
-"Plugin 'tomtom/tlib_vim'
-"Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
 " Plugins that require any configurations
