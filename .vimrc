@@ -50,6 +50,9 @@ Plugin 'othree/html5.vim'
 " CSS3 Syntax
 Plugin 'hail2u/vim-css3-syntax'
 
+" HackLang Syntax
+Plugin 'hhvm/vim-hack'
+
 " Colorschemes
 Plugin 'modess/vim-phpcolors'
 Plugin 'baskerville/bubblegum'
@@ -231,9 +234,12 @@ autocmd FileType vim              let b:comment_leader = '" '
 noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>a
 
-" -----------------------------------------------------------------------------
-" - Some coding abbreviations
-" -----------------------------------------------------------------------------
-"
-" if abbreviation
-autocmd FileType php :iabbrev <buffer> iff if() {<cr>}<up>
+" Override syntax highlight on phpDoc blocks
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags  phpDefine
+endfunction
+
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
