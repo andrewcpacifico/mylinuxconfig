@@ -153,6 +153,9 @@ filetype plugin indent on     " required!
 " Define default file encoding
 set encoding=utf-8
 
+" Enable Syntax Highlighting
+syntax on
+
 " Show cursor position
 set ruler
 
