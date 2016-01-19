@@ -51,7 +51,7 @@ Plugin 'othree/html5.vim'
 Plugin 'hail2u/vim-css3-syntax'
 
 " HackLang Syntax
-Plugin 'hhvm/vim-hack'
+"Plugin 'hhvm/vim-hack'
 
 " Colorschemes
 Plugin 'modess/vim-phpcolors'
@@ -69,6 +69,9 @@ Plugin 'Yggdroot/indentLine'
 
 " Snippets
 Plugin 'honza/vim-snippets'
+
+" TypeScript Syntax
+Plugin 'leafgarland/typescript-vim'
 
 " Plugins that require any configurations
 "
@@ -153,8 +156,16 @@ filetype plugin indent on     " required!
 " Define default file encoding
 set encoding=utf-8
 
+set nowrap
+
+set ttyfast " u got a fast terminal
+set ttyscroll=3
+set lazyredraw " to avoid scrolling problems
+
 " Enable Syntax Highlighting
 syntax on
+" Syntax highlighting only until 120º column, to speed up vim
+set synmaxcol=120
 
 " Show cursor position
 set ruler
@@ -228,7 +239,7 @@ nnoremap <leader><S-Tab> :bprevious<cr>
 nnoremap <leader>bq :bp <bar> bd #<cr>
 
 " Commenting blocks of code.
-autocmd FileType c,cpp,javcala,php,javascript let b:comment_leader = '// '
+autocmd FileType c,cpp,javcala,php,javascript,scss let b:comment_leader = '// '
 autocmd FileType cfg,sh,ruby,python   let b:comment_leader = '# '
 autocmd FileType conf,fstab       let b:comment_leader = '# '
 autocmd FileType tex              let b:comment_leader = '% '
