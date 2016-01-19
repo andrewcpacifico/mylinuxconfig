@@ -235,6 +235,16 @@ set hidden
 nnoremap <leader><Tab> :bnext<cr>
 nnoremap <leader><S-Tab> :bprevious<cr>
 
+nnoremap <leader>1 :call BufferNumbered(1)<cr>
+nnoremap <leader>2 :call BufferNumbered(2)<cr>
+nnoremap <leader>3 :call BufferNumbered(3)<cr>
+nnoremap <leader>4 :call BufferNumbered(4)<cr>
+nnoremap <leader>5 :call BufferNumbered(5)<cr>
+nnoremap <leader>6 :call BufferNumbered(6)<cr>
+nnoremap <leader>7 :call BufferNumbered(7)<cr>
+nnoremap <leader>8 :call BufferNumbered(8)<cr>
+nnoremap <leader>9 :call BufferNumbered(9)<cr>
+
 " Close current buffer and switch to previous
 nnoremap <leader>bq :bp <bar> bd #<cr>
 
@@ -257,3 +267,14 @@ augroup phpSyntaxOverride
   autocmd!
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
+
+" Jump to a numbered buffer
+function! BufferNumbered(num)
+    execute ':bfirst'
+    let c = a:num - 1
+
+    while c > 0
+        execute ':bnext'
+        let c -= 1
+    endwhile
+endfunction
