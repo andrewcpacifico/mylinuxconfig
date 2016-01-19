@@ -148,3 +148,5 @@ NO_COLOR="\[\033[0m\]"
 GRAY="\[\033[01;30m\]"
  
 PS1="$PURPLE\u$GRAY@$GREEN\h$NO_COLOR:$PURPLE\w$YELLOW\$(parse_git_branch)$NO_COLOR\$ "
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
