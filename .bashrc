@@ -150,3 +150,5 @@ GRAY="\[\033[01;30m\]"
 PS1="$PURPLE\u$GRAY@$GREEN\h$NO_COLOR:$PURPLE\w$YELLOW\$(parse_git_branch)$NO_COLOR\$ "
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
+export PATH=$PATH":/usr/local/etc/node-v5.3.0-linux-x64/bin"
