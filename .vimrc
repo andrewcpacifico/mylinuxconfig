@@ -278,3 +278,12 @@ function! BufferNumbered(num)
         let c -= 1
     endwhile
 endfunction
+
+" Custom line right margin for different type of files
+autocmd FileType html setlocal cc=101
+autocmd FileType html setlocal tabstop=2
+autocmd FileType html setlocal shiftwidth=2
+
+" Custom tab size for javascript files
+autocmd FileType javascript setlocal tabstop=2
+autocmd FileType javascript setlocal shiftwidth=2
