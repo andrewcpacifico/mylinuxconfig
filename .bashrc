@@ -127,7 +127,6 @@ fi
 ##export PATH=$PATH":"$ANT_HOME"/bin"
 #
 # Composer defs
-export PATH=$PATH":~/.composer/vendor/bin"
 
 ## Habilita 256 cores no terminal
 export TERM="xterm-256color"
@@ -148,7 +147,3 @@ NO_COLOR="\[\033[0m\]"
 GRAY="\[\033[01;30m\]"
  
 PS1="$PURPLE\u$GRAY@$GREEN\h$NO_COLOR:$PURPLE\w$YELLOW\$(parse_git_branch)$NO_COLOR\$ "
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-
-export PATH=$PATH":/usr/local/etc/node-v5.3.0-linux-x64/bin"
