@@ -111,7 +111,8 @@ let tlist_php_settings='php;c:Classes;f:Functions'
 Plugin 'scrooloose/syntastic'
 
 " Airline
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 let g:airline_theme='bubblegum'
 let g:airline#extensions#tabline#enabled = 1 "Enable the list of buffers
 let g:airline#extensions#tabline#fnamemod = ':t' "Show just the file name
@@ -137,6 +138,8 @@ Plugin 'vim-scripts/PDV--phpDocumentor-for-Vim'
 let g:pdv_cfg_Author = "Andrew C. Pacifico <andrewcpacifico@gmail.com>"
 autocmd FileType php nnoremap <leader>gd :call PhpDocSingle()<CR>
 autocmd FileType php vnoremap <leader>gd :call PhpDocRange()<CR>
+
+Plugin 'wookiehangover/jshint.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -287,3 +290,9 @@ autocmd FileType html setlocal shiftwidth=2
 " Custom tab size for javascript files
 autocmd FileType javascript setlocal tabstop=2
 autocmd FileType javascript setlocal shiftwidth=2
+
+" Custom tab size for css/scss files
+autocmd FileType css setlocal tabstop=2
+autocmd FileType css setlocal shiftwidth=2
+autocmd FileType scss setlocal tabstop=2
+autocmd FileType scss setlocal shiftwidth=2
