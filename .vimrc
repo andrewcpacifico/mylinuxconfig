@@ -50,34 +50,19 @@ Plugin 'othree/html5.vim'
 " CSS3 Syntax
 Plugin 'hail2u/vim-css3-syntax'
 
-" HackLang Syntax
-"Plugin 'hhvm/vim-hack'
-
 " Colorschemes
-Plugin 'modess/vim-phpcolors'
-Plugin 'baskerville/bubblegum'
 Plugin 'tomasr/molokai'
 
 " Make gvim-only colorschemes work transparently in terminal vim
 Plugin 'godlygeek/csapprox'
 
-" Java auto complete
-Plugin 'javacomplete'
-
 " Block indentation highlight
 Plugin 'Yggdroot/indentLine'
 
-" Snippets
-Plugin 'honza/vim-snippets'
-
-" TypeScript Syntax
-Plugin 'leafgarland/typescript-vim'
-
-" Plugins that require any configurations
-"
 
 " CtrlP
 Plugin 'kien/ctrlp.vim'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|.git)$'
 
 " Snippet Plugin
 Plugin 'SirVer/ultisnips'
@@ -86,6 +71,9 @@ let g:UltiSnipsJumpForwardTrigger='<c-k>'
 let g:UltiSnipsJumpBackwardTrigger='<c-j>'
 let g:snips_author='Andrew C. Pacifico <andrewpacifico@neemu.com>'
 
+" Snippets
+Plugin 'honza/vim-snippets'
+
 " NERDTree
 Plugin 'scrooloose/nerdtree'
 " Open NERDTree automatically when vim starts up if no files where specified
@@ -93,22 +81,8 @@ autocmd vimenter * if !argc() | NERDTree | endif
 let NERDTreeShowHidden=0 " Show Hidden Files
 nnoremap <leader>nt :NERDTreeToggle<cr>
 
-" PHP auto complete
-Plugin 'shawncplus/phpcomplete.vim'
-let g:phpcomplete_parse_docblock_comments = 1
-
-"TagList
-Plugin 'taglist.vim'
-autocmd vimenter * if !argc() | TlistToggle | endif
-nnoremap <leader>t :TlistToggle<CR>
-let Tlist_Use_Right_Window=1 "Shows TagList on right
-let Tlist_Sort_Type="name"
-let Tlist_GainFocus_On_ToggleOpen=1
-let Tlist_File_Fold_Auto_Close=1
-"Choose which tags should be displayed in php files
-let tlist_php_settings='php;c:Classes;f:Functions' 
-
-Plugin 'scrooloose/syntastic'
+" Temporarily removed because of performance issues
+" Plugin 'scrooloose/syntastic'
 
 " Airline
 Plugin 'vim-airline/vim-airline'
@@ -117,29 +91,6 @@ let g:airline_theme='bubblegum'
 let g:airline#extensions#tabline#enabled = 1 "Enable the list of buffers
 let g:airline#extensions#tabline#fnamemod = ':t' "Show just the file name
 let g:airline#extensions#tabline#show_buffers = 1
-"let g:airline_powerline_fonts=1
-"let g:airline_enable_branch=1
-"let g:airline_enable_syntastic=1
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline_detect_paste=1
-"enable/disable showing a summary of changed hunks under source control.
-let g:airline#extensions#hunks#enabled = 1
-
-" fugitive
-Plugin 'tpope/vim-fugitive'
-
-" Supertab
-Plugin 'ervandew/supertab'
-let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
-let g:SuperTabMappingForward = '<nul>'
-
-" PDV: PhpDocGenerator
-Plugin 'vim-scripts/PDV--phpDocumentor-for-Vim'
-let g:pdv_cfg_Author = "Andrew C. Pacifico <andrewcpacifico@gmail.com>"
-autocmd FileType php nnoremap <leader>gd :call PhpDocSingle()<CR>
-autocmd FileType php vnoremap <leader>gd :call PhpDocRange()<CR>
-
-Plugin 'wookiehangover/jshint.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -198,29 +149,11 @@ set colorcolumn=81
 "let g:molokai_original = 1
 colorscheme molokai
 
-" Enable autocomplete
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-"autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-"autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
-
 " Keybindings
 "
-" Ctrl+S to save files
+" Save files
 inoremap <leader>s <Esc>:w<CR>i
 nnoremap <leader>s :w<cr>
-
-" Ctrl+C to copy selected text to clipboard
-vnoremap <C-c> "+yi
-
-" Ctrl+V to paste clipboard content
-inoremap <C-v> <Esc> "+pi
-
-" Ctrl+Z to undo changes
-inoremap <C-z> <Esc>ui
-
-" Ctrl+D to delete the selected line
-"inoremap <C-d> <Esc>ddi
-"nnoremap <C-d> dd
 
 " Edit .vimrc in split mode
 nnoremap <leader>ev :rightbelow vsplit $MYVIMRC<cr>
@@ -283,7 +216,7 @@ function! BufferNumbered(num)
 endfunction
 
 " Custom line right margin for different type of files
-autocmd FileType html setlocal cc=101
+autocmd FileType html setlocal cc=121
 autocmd FileType html setlocal tabstop=2
 autocmd FileType html setlocal shiftwidth=2
 
