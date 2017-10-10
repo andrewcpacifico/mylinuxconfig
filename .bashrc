@@ -149,3 +149,11 @@ GRAY="\[\033[01;30m\]"
 PS1="$PURPLE\u$GRAY@$GREEN\h$NO_COLOR:$PURPLE\w$YELLOW\$(parse_git_branch)$NO_COLOR\$ "
 
 alias h="vi /etc/hosts"
+
+# nvm load
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+# rvm load
+export RVM_PATH="/usr/share/rvm"
+export PATH="$PATH:$RVM_PATH/bin"
