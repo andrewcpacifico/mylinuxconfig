@@ -157,3 +157,4 @@ export NVM_DIR="$HOME/.nvm"
 # rvm load
 export RVM_PATH="/usr/share/rvm"
 export PATH="$PATH:$RVM_PATH/bin"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
