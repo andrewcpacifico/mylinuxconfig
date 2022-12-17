@@ -101,7 +101,38 @@ source $ZSH/oh-my-zsh.sh
 
 # personal stuff
 alias h="vi /etc/hosts"
+alias godfather="ssh godfather"
+alias godfather-decrypt="ssh godfather-decrypt"
 
 # nvm load
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+# aws configurations
+export AWS_PROFILE=mfa
+source ~/.aws/codeartifact
+
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+
+alias chrome="open -a 'Google Chrome'"
+
+export ANDROID_HOME=/Users/andrewcpacifico/Library/Android/sdk
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/emulator:$PATH
+
+# jenv configuration
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+# pyenv configuration
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# gnu-tar
+export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
